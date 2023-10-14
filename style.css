@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+}
+
+
+.info {
+    width: 1080px;
+    margin: 20px auto 0;
+    background-color: white;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px springgreen solid;
+}
+.info .name{
+    float: left;
+    width: 50%;
+}
+.info .tries{
+    float :right;
+    text-align: right;
+    width: 50%;
+}
+.game {
+    display: flex;
+    width: 1100px;
+    flex-wrap:wrap ;
+    margin: 20px auto;
+
+}
+.game .card{
+    height: 250px;
+    transition: transform 0.5s;
+    transform: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 250px ;
+    margin: 0 10px 20px;
+}
+.game.no_clicking{
+    pointer-events: none;
+}
+
+.card .front{
+    background-color: #333;
+    line-height: 250px;
+    /* same height */
+}
+.card .back{
+    background-color: blueviolet;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .back .emoji{
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+    font-size: 3rem;
+    /* text-align: center; */
+  
+}
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 3px solid springgreen;
+}
+.card .front::before{
+    content: '?';
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+
+}
+.back.flipped,.back.has-matched{
+    transform: rotateY(0deg);
+    pointer-events: none;
+}
+.card.flipped,.card.has-matched{
+    transform: rotateY(180deg);
+    /* pointer-events: none; */
+
+}
+.win{
+    width: 100vw;
+    height: 150vh;
+    background-color: rgba(0, 255, 128, 0.809);
+    text-align: center;
+    font-size: 4rem;
+    position: absolute;
+    color: white;
+    line-height:150vh;
+    z-index:5;
+}
+.lose{
+    width: 100vw;
+    height: 150vh;
+    background-color: rgba(255, 51, 0, 0.809);
+    text-align: center;
+    font-size: 4rem;
+    position: absolute;
+    color: white;
+    line-height:60vh;
+    z-index: 10;
+
+}
+.try_agin{padding: 20px;
+    color: rgba(255, 51, 0, 0.809);
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;}
+
+    .win .try_agin{color:rgba(0, 255, 128, 0.809)}
+
+/*
+tasks
+1-music when game start 
+2-timer when finished pop up time over
+3- show all for one second
